@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <style>
+
+        .kutu {
+            border: none;
+            background: none;
+            border: 1px solid dashed;
+        }
+    </style>
+</head>
+<body>
+
+    @*
+        Razor helper metotlar asp.net mvc ile gelmiştir...
+
+        Razor synax =>ile gelen html içerisinde çağrılan html metotlarıdır. BU metotlar html render eden yardımcı metotlardır....
+    *@
+
+    <a href="/Home/Sayfam">Diğer Sayfa Git</a>
+
+    @Html.ActionLink("Diğer Sayfaya Git", "Sayfam", "Home")
+
+    <br />
+    <a asp-controller="Home" asp-action="Sayfam">Deneme Deneme Deneme</a>
+    <br />
+    <input type="text" />
+    <br />
+    @Html.TextBox("txtDeneme") <!--txtDeneme id li ve name li input render et...-->
+
+    <br />
+    <br />
+    <input type="text" placeholder="birşeyler yaz..." class="kutu" />
+    <br />
+
+    @*class ifadesi c# dilinde bir anlam ifade ettiği için @class olarak atrribute verilir..*@
+
+    @Html.TextBox("txtDeneme", null, new { placeholder = "birşeyler yaz", @class = "kutu" })
+
+
+    <!--
+        Html içerisinde helper metotların olması okunaklığı azaltır..Bunun için asp.net core ile birlikte taghelper yapı gelmiştir...Yani razor helper metotlar ile yapabildiğim şeyleri taghelperlar ilede yapabiliriz...Bu html elementlerine asp ifadeleri ile anlam kazandırırız..
+
+
+        Projede tag helper kullanabilmek için sayfamızın tepesinde;
+        addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper ifadesini yazmaız gerekir. Eğer bu ifade yoksa tag helper yazamayız. Ancak her sayfanın tepesine bunu yazmak yerine Views klasörü içerisinde _ViewImports.cshtml dosyasına yazarsak (zaten yazılıdır) bu yükten kurtulmuş oluruz.
+
+        _ViewImports.cshtml dosyası bütün viewlarda kullanılacak namespaceleri c# ifadelerini tanımlamak için kullanılır.
+
+        _ViewStart.cshtml dosyası asp.net mvc ile gelmiştir.
+        _ViewImports.cshtml dosyası asp.net core mvc ile gelmiştir...
+        -->
+
+
+</body>
+</html>
